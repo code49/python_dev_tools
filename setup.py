@@ -8,4 +8,4 @@ are installed properly.
 
 #----- import various setup files -----
 
-import module_setup
+from python_dev_tools import module_setup
