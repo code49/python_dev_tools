@@ -9,3 +9,7 @@ are installed properly.
 #----- import various setup files -----
 
 from python_dev_tools import module_setup
+
+#----- run various functions from setup files -----
+
+module_setup.module_setup()
