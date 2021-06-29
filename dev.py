@@ -7,8 +7,6 @@ detailed output for development reasons.
 
 #----- code -----
 
-dev_mode = True
-
-def devPrint(content):
+def devPrint(content, dev_mode=True):
     if dev_mode:    
         print(content)
