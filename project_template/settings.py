@@ -1,7 +1,7 @@
 #----- intro -----
 
 """
-<add introductory comments here> 
+This file is meant to streamline importing environment variables into projects.
 """
 
 #----- load environment variables -----
