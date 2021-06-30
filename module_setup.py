@@ -12,7 +12,7 @@ Credit to @ArtOfWarfare on stackOverflow for this solution:
 
 import json #this is to read the .json file
 
-def module_setup():
+def setup_modules():
     with open('./python_dev_tools/module_list.json') as file:
         data = json.load(file)
 
