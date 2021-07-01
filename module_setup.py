@@ -28,7 +28,7 @@ def setup_modules():
         from subprocess import call #for using python/pip to install pip and other needed modules
         from os import remove, name #for removing the get-pip.py file after having installed pip, name is for ensuring correct pipPath for different OS
         # from urllib import urlretrieve #for getting get-pip.py file from the internet
-        import urllib
+        from urllib.request import urlretrieve
         from os.path import isfile, join #for dealing with pip's filepath
         from sys import prefix #this gets the filepath prefix for the system, for example C: on windows
         from subprocess import Popen, PIPE #used to get the pip.exe filepath on unix-based systems
@@ -39,7 +39,7 @@ def setup_modules():
         #function that installs pip and cleans up the get-pip.py file afterward
         def installPip(): 
 
-            urllib.urlretrieve("https://bootstrap.pypa.io/get-pip.py", "get-pip.py") #get get-pip.py file from online
+            urlretrieve("https://bootstrap.pypa.io/get-pip.py", "get-pip.py") #get get-pip.py file from online
             call(["python", "get-pip.py"]) #run the .py file to install pip
             remove("get-pip.py") #remove the file to clean up the mess
 
@@ -57,7 +57,7 @@ def setup_modules():
             if not isfile(pipPath):
                 installPip()
                 if not isfile(pipPath):
-                    raise("MODULE INSTALL ERROR: failed to find/install pip, try manually installing pip and trying again, or if that doesn't work manually set pipPath to the pip.exe filepath")
+                    raise NameError("MODULE INSTALL ERROR: failed to find/install pip, try manually installing pip and trying again, or if that doesn't work manually set pipPath to the pip.exe filepath")
 
             return pipPath
 
@@ -73,7 +73,7 @@ def setup_modules():
                     print(f"{module_pip_name} has been installed.")
 
             except: #this will raise an error if pip can't install the module for some reason
-                raise(f"MODULE INSTALL ERROR: failed to install module {module_pip_name}. check that the module name is correct and then try again.")
+                raise KeyError(f"MODULE INSTALL ERROR: failed to install module {module_pip_name}. check that the module name is correct and then try again.")
         
         
         #----- running the two functions -----
