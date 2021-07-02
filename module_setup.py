@@ -84,8 +84,7 @@ def setup_modules(module_list):
         with open('./python_dev_tools/module_list.json', 'r') as file:
             data = json.load(file)
         new_data = {
-            "setup_status": True,
-            "module_list": data["module_list"]
+            "setup_status": True
         }
         with open('./python_dev_tools/module_list.json', 'w') as file:
             data = json.dump(new_data, file)
