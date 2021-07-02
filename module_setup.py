@@ -12,16 +12,13 @@ Credit to @ArtOfWarfare on stackOverflow for this solution:
 
 import json #this is to read the .json file
 
-def setup_modules():
+def setup_modules(module_list):
     with open('./python_dev_tools/module_list.json') as file:
         data = json.load(file)
 
     if not data["setup_status"]:
 
         print("Module Installation: This project has not been set up yet. Installing modules now.")
-
-        #----- load list of module names -----
-        module_list = data["module_list"]
 
         #----- import baseline library stuff -----
 
@@ -87,8 +84,7 @@ def setup_modules():
         with open('./python_dev_tools/module_list.json', 'r') as file:
             data = json.load(file)
         new_data = {
-            "setup_status": True,
-            "module_list": data["module_list"]
+            "setup_status": True
         }
         with open('./python_dev_tools/module_list.json', 'w') as file:
             data = json.dump(new_data, file)

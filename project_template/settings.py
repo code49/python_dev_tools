@@ -8,7 +8,6 @@ This file is meant to streamline importing environment variables into projects.
 
 #setup dotenv properly
 from dotenv import load_dotenv, find_dotenv
-from pathlib import Path
 import os
 
 BASEDIR = os.path.abspath(os.path.dirname(__file__))
