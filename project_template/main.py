@@ -8,7 +8,7 @@
 
 from python_dev_tools import dev, final, module_setup #import the dev tool files, run setup routine
 module_list = ["python-dotenv"] #add in strings of require-install modules here
-module_setup.main()
+module_setup.main(module_list)
 
 dev_mode = True
 

@@ -47,7 +47,7 @@ def setup_modules(module_list):
             if name == "nt": #windows
                 pipPath = join(prefix, 'Scripts', 'pip.exe') 
             else: #unix
-                finder = Popen(['where' if isWindows() else 'which', 'pip'], stdout=PIPE, stderr=PIPE)
+                finder = Popen(['which', 'pip'], stdout=PIPE, stderr=PIPE)
                 pipPath = finder.communicate()[0].strip()
 
             #check if pip is installed, install it if not
