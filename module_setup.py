@@ -81,12 +81,12 @@ def setup_modules(module_list):
 
         #----- update module_list.json -----
 
-        with open('./python_dev_tools/module_list.json', 'r') as file:
+        with open('./python_dev_tools/setup_status.json', 'r') as file:
             data = json.load(file)
         new_data = {
-            "setup_status": True
+            "module_setup_status": True
         }
-        with open('./python_dev_tools/module_list.json', 'w') as file:
+        with open('./python_dev_tools/setup_status.json', 'w') as file:
             data = json.dump(new_data, file)
 
         print("Module Installation: The project is now set up, you should not need to do this again.")
