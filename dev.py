@@ -7,6 +7,11 @@ detailed output for development reasons.
 
 #----- code -----
 
-def devPrint(content, dev_mode=True):
-    if dev_mode:    
-        print(content)
+class devCommands():
+
+    def __init__(self, dev_mode):
+        self.dev_mode = dev_mode
+
+    def devPrint(self, content):
+        if self.dev_mode:    
+            print(content)
