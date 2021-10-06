@@ -52,13 +52,12 @@ class finalCommands():
         
         #determine if the maximum length of a string in string_list is less than the width of the terminal and print the dashed line accordingly
         max_string_length = max(string_list)
-        terminal_width = os.get_terminal_size
+        terminal_width = os.get_terminal_size["columns"]
         line_width = max(max_string_length, terminal_width)
         temp_line = ""
         for i in range(0, line_width):
             temp_line.append("-")
         print(temp_line)
-        
 
     #clearing the terminal window, but ensuring that dev mode is disabled in order to do so - see finalNoDevPrint()
     def noDevClear(self):
