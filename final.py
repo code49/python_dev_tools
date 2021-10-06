@@ -38,8 +38,12 @@ class finalCommands():
         else: 
             _ = os.system('clear') 
 
+    #printing blank lines
+    def blankLine(self):
+        print()
+
     #clearing the terminal window, but ensuring that dev mode is disabled in order to do so - see finalNoDevPrint()
-    def NoDevClear(self):
+    def noDevClear(self):
         if not self.dev_mode:
             #for windows 
         if os.name == 'nt': 
