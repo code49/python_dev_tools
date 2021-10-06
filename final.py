@@ -47,7 +47,7 @@ class finalCommands():
     #printing a line that's either the length of the terminal or the length of the longest string in a set of strings
     def dashedFormattedLine(self, string_list):
         #sanity check to ensure that we have received a list of length >= 1
-        if type(string_list) != "list" or len(string_list) == 0:
+        if type(string_list) != "list" or not len(string_list) >= 1:
             self.errorCreator.printError("TypeError", "finalCommands:dashedFormmatedLine()", "expected a list of at least length 1, either didn't get a list or got an empty one", "something has gone wrong, please inform the creator of the program", "", exit=True)
         
         #determine if the maximum length of a string in string_list is less than the width of the terminal and print the dashed line accordingly
