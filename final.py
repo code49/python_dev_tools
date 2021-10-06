@@ -63,12 +63,12 @@ class finalCommands():
     def noDevClear(self):
         if not self.dev_mode:
             #for windows 
-        if os.name == 'nt': 
-            _ = os.system('cls') 
-  
-        #for mac and linux (os.name is 'posix') 
-        else: 
-            _ = os.system('clear') 
+            if os.name == 'nt': 
+                _ = os.system('cls') 
+    
+            #for mac and linux (os.name is 'posix') 
+            else: 
+                _ = os.system('clear') 
 
     #inline printing on the terminal window
     def inline(self, content):
