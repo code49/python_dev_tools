@@ -1,12 +1,12 @@
-#----- intro -----
+# ----- intro -----
 
 """
-<add introductory comments here> 
+This file is for automatically loading settings from the .env file.  
 """
 
-#----- load environment variables -----
+# ----- load environment variables -----
 
-#setup dotenv properly
+# setup dotenv properly
 from dotenv import load_dotenv, find_dotenv
 from pathlib import Path
 import os
@@ -15,7 +15,8 @@ BASEDIR = os.path.abspath(os.path.dirname(__file__))
 print(find_dotenv())
 load_dotenv(find_dotenv())
 
-#----- create function to return environment variables to main file -----
+# ----- create function to return environment variables to main file -----
+
 
 def getSettings(settings_list):
     """
@@ -23,7 +24,7 @@ def getSettings(settings_list):
 
     Parameters
     ----------
-    
+
     settings_list: list
         list of strings containing each setting's name
 
@@ -37,5 +38,5 @@ def getSettings(settings_list):
     settings = {}
     for setting in settings_list:
         settings[setting] = os.getenv(setting)
-    
+
     return settings

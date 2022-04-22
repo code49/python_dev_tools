@@ -4,8 +4,7 @@ for various purposes, mostly things like tkinter and running menus and backgroun
 """
 
 
-
-#----- function to import necessary modules -----
+# ----- function to import necessary modules -----
 
 from dev import devCommands
 from final import finalCommands
@@ -13,9 +12,11 @@ from user_input import errorCreator
 import threading
 import os
 
-#----- threading class -----
+# ----- threading class -----
+
+
 class threader():
-    
+
     def __init__(self):
         self.threads = list()
         self.final = finalCommands()
@@ -49,7 +50,8 @@ class threader():
             function_to_run(*args, **kwargs)
             temp_thread_pid = os.getpid()
 
-        thread = threading.Thread(target=bigFunction, name=function_to_run.__name__)
+        thread = threading.Thread(
+            target=bigFunction, name=function_to_run.__name__)
         thread.start()
 
         self.threads.append({
@@ -75,23 +77,24 @@ class threader():
             {"task": thread_task, "id": thread_pid}
         """
 
-        #do some pre-formatting
-        string_list = ["the following are the currently running threads:", "format: thread:process id", ""]
+        # do some pre-formatting
+        string_list = ["the following are the currently running threads:",
+                       "format: thread:process id", ""]
         for i in range(0, len(self.threads)):
             thread = self.threads[i]
             task = thread["task"]
             id = thread["id"]
             string_list.append(f"{i}. {task}: {id}")
 
-        #print out the lines as requested
+        # print out the lines as requested
         self.final.blankLine()
         self.final.dashedFormattedLine(string_list)
         for string in string_list:
             print(string)
         self.final.dashedFormattedLine(string_list)
         self.final.blankLine()
-        
-        #return a list of the threads' names and pids 
+
+        # return a list of the threads' names and pids
         thread_info_list = []
         for thread in self.threads:
             thread_info_list.append({
@@ -106,7 +109,7 @@ class threader():
 
         Parameters:
         -----------
-        
+
         None
 
         Returns:
@@ -114,7 +117,7 @@ class threader():
 
         None
         """
-        
+
         for thread in self.threads:
             thread.join()
         exit
