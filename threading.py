@@ -1,26 +1,22 @@
+# ----- intro -----
+
 """
 This file is meant to straightforwardly implement multithreading support
 for various purposes, mostly things like tkinter and running menus and backgroun tasks at the same time.
 """
 
+# ----- import necessary libraries -----
 
-# ----- function to import necessary modules -----
-
-from dev import devCommands
-from final import finalCommands
-from user_input import errorCreator
-import threading
-import os
+import threading  # for threading, duh :)
+import os  # for getting process data
 
 # ----- threading class -----
 
 
-class threader():
+class threader(object):
 
     def __init__(self):
         self.threads = list()
-        self.final = finalCommands()
-        self.dev = devCommands()
 
     def createThread(self, function_to_run, *args, **kwargs):
         """
