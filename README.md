@@ -86,7 +86,7 @@ This is perhaps the most useful feature of the entire toolkit. Essentially, it's
 
 Using the feature is quite simple. First, you need to create a list of the PyPI modules you want to require. Ensure that the names are as listed in PyPI, not just the ones you use to import them - for example Python Image Library (PIL) is listed in PyPI as "Pillow" instead of "PIL". Because the tool will simply try to install the package using pip (meaning that it won't know that say, PIL is actually named Pillow when installing), this is very important.
 
-Additionally, "python-dotenv" and "regex" must always be required + installed in order for settings<area>.py to work properly.
+Additionally, "python-dotenv" must always be required + installed in order for settings<area>.py to work properly.
 
 An example of doing this:
 
