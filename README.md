@@ -1,4 +1,4 @@
-# python-dev-tools
+# python-dev-tools (pytools)
 
 ![project banner image](readmebanner.png)
 
