@@ -104,3 +104,24 @@ def messager_setup():  # bundling into a function for easy import
     logger.addHandler(file_warning_up_handler)
 
     return logger
+
+
+def clear():
+    """
+
+    clears the terminal window.
+
+    Parameters:
+    -----------
+
+    None
+
+    Returns:
+    --------
+
+    None
+
+    """
+
+    import os
+    os.system('cls||clear')
