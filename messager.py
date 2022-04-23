@@ -6,7 +6,24 @@ https://docs.python.org/3/howto/logging.html
 """
 
 
-def messager_setup():  # bundling into a function for easy import
+def messager_setup(dev_mode=True):  # bundling into a function for easy import
+    """
+
+    bundles the logging library setup into a single function for simple importing into project files.
+
+    Parameters:
+    -----------
+
+    dev_mode: bool (optional)
+        boolean representing whether 'DEBUG'-type logs are printed to the console. defaults to True.
+
+    Returns:
+    --------
+
+    logger: logging logger object
+        logging logger object representing the configured logger object.
+
+    """
 
     # ----- import necessary libraries -----
 
@@ -57,17 +74,46 @@ def messager_setup():  # bundling into a function for easy import
         def filter(self, record):
             return record.levelno == self.level
 
+    class devModeFilter(object):
+        """
+
+        same as the singleFilter() class, but for filtering out 'DEBUG'-type logs from the terminal.
+
+        Parameters:
+        -----------
+
+        dev_mode: bool 
+            boolean representing whether 'DEBUG'-type logs are printed to the console. defaults to True.
+
+        """
+
+        def __init__(self, level, dev_mode):
+            self.level = level
+            self.dev_mode = dev_mode
+
+        def filter(self, record):
+
+            if dev_mode:
+                return record.levelno == self.level
+            else:
+                return False
+
     # ----- setup console logger handlers -----
 
-    # for simplifying code to setup console log handlers
+    # debug has to be done manually because of dev_mode
     console_debug_handler = logging.StreamHandler()
+    console_debug_handler.setLevel(logging.DEBUG)
+    console_debug_handler.addFilter(devModeFilter(logging.DEBUG, dev_mode))
+    console_debug_handler.setFormatter(debug_formatter)
+    console_debug_handler.setStream(sys.stdout)
+
+    # for simplifying code to setup remaining console log handlers
     console_info_handler = logging.StreamHandler()
     console_warning_handler = logging.StreamHandler()
     console_error_handler = logging.StreamHandler()
     console_critical_handler = logging.StreamHandler()
 
     handler_list = [
-        [console_debug_handler, logging.DEBUG, debug_formatter],
         [console_info_handler, logging.INFO, info_formatter],
         [console_warning_handler, logging.WARNING, warning_formatter],
         [console_error_handler, logging.ERROR, critical_error_formatter],
