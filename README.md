@@ -95,7 +95,6 @@ An example of doing this:
     dev_mode = True #for whether dev_mode should be enabled or not
     module_list = [
         "python-dotenv", #remember that this is required for settings.py to work
-        "regex", #this is needed for user_input.py to work (theoretically just re would work, but unicode support is nice)
         "url-lib3",
         "markupsafe",
         "other PyPI modules"
