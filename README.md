@@ -49,7 +49,7 @@ This is a tool meant to simplify terminal messaging and debugging/output logging
 
 To setup the messager, import the `messagerSetup()`, `clear()`, and `horizontalRule()` functions directly from pytools.messager into the main file, ensuring dev_mode is set to False if desired (to remove "DEBUG"-type logs from the terminal). Then, create an instance of the messager (not a custom class, just a function returning the library-provided one) by calling the `messagerSetup()` function:
 
-    from pytools.messager import messagerSetup(), clear(), horizontalRule()
+    from pytools.messager import messagerSetup, clear, horizontalRule
     logger = messagerSetup()
 
 #### messages:
