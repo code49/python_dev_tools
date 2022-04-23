@@ -6,7 +6,7 @@ https://docs.python.org/3/howto/logging.html
 """
 
 
-def messager_setup(dev_mode=True):  # bundling into a function for easy import
+def messagerSetup(dev_mode=True):  # bundling into a function for easy import
     """
 
     bundles the logging library setup into a single function for simple importing into project files.
@@ -130,12 +130,12 @@ def messager_setup(dev_mode=True):  # bundling into a function for easy import
     # ----- setup file logger handlers -----
 
     file_all_handler = RotatingFileHandler(
-        "./pytools/messenger_output/all/all.log", maxBytes=max_log_size_bytes, backupCount=10)
+        "./pytools/messager_output/all/all.log", maxBytes=max_log_size_bytes, backupCount=10)
     file_all_handler.setLevel(logging.DEBUG)
     file_all_handler.setFormatter(critical_error_formatter)
 
     file_warning_up_handler = RotatingFileHandler(
-        "./pytools/messenger_output/warn_up/warn_up.log", maxBytes=max_log_size_bytes, backupCount=10)
+        "./pytools/messager_output/warn_up/warn_up.log", maxBytes=max_log_size_bytes, backupCount=10)
     file_warning_up_handler.setLevel(logging.WARNING)
     file_warning_up_handler.setFormatter(critical_error_formatter)
 
@@ -152,7 +152,7 @@ def messager_setup(dev_mode=True):  # bundling into a function for easy import
     return logger
 
 
-def clear():
+def clear() -> None:
     """
 
     clears the terminal window.
@@ -171,3 +171,35 @@ def clear():
 
     import os
     os.system('cls||clear')
+
+
+def horizontalRule(length: int = 0) -> None:
+    """
+
+    function for creating horizontal rules across the terminal screen.
+
+    Parameters:
+    -----------
+
+    length: int (optional)
+        custom integer length (i.e. not the full width of the terminal) of the horizontal rule.
+
+    """
+
+    # prevent erroring by checking that length is an integer not < 0
+    if (length < 0) or (not type(length) is int):
+        raise TypeError(
+            "horizontal rule length is not an integer greater than 0.")
+
+    # get terminal width if no custom length has been set
+    if length == 0:
+        import os
+        length = os.get_terminal_size.lines
+
+    # create the rule string
+    rule_string = ""
+    for i in range(length):
+        rule_string += "-"
+
+    # print the rule string
+    print(rule_string)
