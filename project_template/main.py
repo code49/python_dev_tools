@@ -38,7 +38,7 @@ def main():  # main running function of the program
 
 # ----- if this is meant to be a script, uncomment this section; otherwise, it is meant to be a library -----
 #
-# if __name__ == __main__():
+# if __name__ == "__main__":
 #     main()
 #
 # -----
