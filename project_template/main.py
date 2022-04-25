@@ -6,20 +6,32 @@
 
 # ----- import required libraries -----
 
+# required for the base script
 import time
+import os
+
+# other libraries
+
+# ----- import tool libraries from pytools
+
+# import the setup routine to be run
+from pytools.module_setup import moduleSetup
+import settings
+from pytools.messager import messagerSetup, clear, horizontalRule
+
+# ----- define developer mode setting -----
+
+dev_mode = True
 
 # ----- messager setup -----
 
-from pytools import module_setup  # import the setup routine to be run
-import settings
-from pytools.messager import messagerSetup, clear, horizontalRule
-logger = messagerSetup()
+messager = messagerSetup(dev_mode=True, run_erase=False)
 
 # ----- module setup -----
 
 # add in strings of require-install modules here
 module_list = ["python-dotenv"]
-module_setup.main(module_list)
+module_setup(dev_mode, module_list)
 
 # ----- load environment variables -----
 
@@ -27,8 +39,10 @@ settings = settings.getSettings()
 
 # ----- completion message -----
 
+clear()
 time.sleep(1)
-logger.info("setup complete.")
+messager.info("setup complete.")
+messager.info(f"----- new {os.path.basename(__file__)} run -----")
 
 # ----- code -----
 
