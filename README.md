@@ -66,11 +66,19 @@ There are 5 types of messages to use. A broad-strokes breakdown:
 
 Once set up, each can be called using a simple command from the logger instance:
 
-    logger.debug("this is a debug-level message.")
-    logger.info("this is a info-level message.")
-    logger.warning("this is a warning-level message.")
-    logger.error("this is a error-level message.")
-    logger.critical("this is a critical-level message.")
+    messager.debug("this is a debug-level message.")
+    messager.info("this is a info-level message.")
+    messager.warning("this is a warning-level message.")
+    messager.error("this is a error-level message.")
+    messager.critical("this is a critical-level message.")
+    
+Which nets something like this:
+
+- [DEBUG] <04.25 10:52:07> main.py::main() (line 51): this is a debug-level message.
+- [INFO] 10:52:07: this is a info-level message.
+- [WARNING] <2022.04.25 10:52:07> main(): this is a warning-level message.
+- [ERROR] <2022.04.25 10:52:07> main.py::main() (line 54): this is a error-level message.
+- [CRITICAL] <2022.04.25 10:52:07> main.py::main() (line 55): this is a critical-level message.
 
 #### log files:
 
@@ -90,7 +98,7 @@ Additionally, "python-dotenv" must always be required + installed in order for s
 
 An example of doing this:
 
-    from python_dev_tools import moduleSetup
+    from pytools.moduleSetup import moduleSetup
 
     dev_mode = True #for whether dev_mode should be enabled or not
     module_list = [
@@ -100,9 +108,9 @@ An example of doing this:
         "other PyPI modules"
     ]
 
-From there, simply instantiate an instance of the moduleSetup class with dev_mode and module_list as parameters:
+From there, call the function:
 
-     moduleSetup = moduleSetup(dev_mode)
+    moduleSetup(module_list, dev_mode)
 
 and you're done. Simple, right? 
 
