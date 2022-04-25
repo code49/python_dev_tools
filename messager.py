@@ -6,7 +6,8 @@ https://docs.python.org/3/howto/logging.html
 """
 
 
-def messagerSetup(dev_mode=True):  # bundling into a function for easy import
+# bundling into a function for easy import
+def messagerSetup(dev_mode=True, run_erase=False):
     """
 
     bundles the logging library setup into a single function for simple importing into project files.
@@ -16,6 +17,9 @@ def messagerSetup(dev_mode=True):  # bundling into a function for easy import
 
     dev_mode: bool (optional)
         boolean representing whether 'DEBUG'-type logs are printed to the console. defaults to True.
+
+    run_erase: bool (optional)
+        boolean representing whether log files are reset on each run (setup) of the program. defaults to False.
 
     Returns:
     --------
@@ -30,11 +34,20 @@ def messagerSetup(dev_mode=True):  # bundling into a function for easy import
     import logging  # for messaging and automatic debug logging
     from logging.handlers import RotatingFileHandler
     import sys  # for console outputs
+    import os  # for filesystem handling
 
     # ----- maximum log file size -----
 
     max_log_size_mb = 500  # making 0.5 gb the maximum log file size
     max_log_size_bytes = max_log_size_mb * (10 ^ 6)  # auto-conversion to bytes
+
+    # ----- if log files exist and run_erase is true, erase them -----
+
+    if run_erase:
+        path_dir = './messager/'
+        for suffix in ["all", "warn_up"]:
+            for file in os.listdir(path_dir + suffix):
+                os.remove(os.path.join(dir, file))
 
     # ----- create and configure an instance of the logger class -----
     logger = logging.getLogger("test")
