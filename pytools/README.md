@@ -2,8 +2,6 @@
 
 ![project banner image](readmebanner.png)
 
-_somewhat obviously, change this for use in projects_
-
 ## purpose:
 
 The purpose of this project is to create a simple, easy-to-use set of commonly-used tools for python program development. This includes many features, from differentiating different use-cases of print statements (i.e. ones needed for debugging vs. ones needed in the final program) to automatically installing PyPI modules straight from the internet.

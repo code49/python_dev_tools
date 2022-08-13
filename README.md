@@ -2,7 +2,7 @@
 
 ![project banner image](readmebanner.png)
 
-_somewhat obviously, change this for use in projects_
+_somewhat obviously, change this for use in projects._
 
 ## purpose:
 
