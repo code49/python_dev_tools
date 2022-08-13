@@ -12,19 +12,20 @@ The purpose of this project is to create a simple, easy-to-use set of commonly-u
 
 This is meant to be a simple guide to the directory.
 
-    -----| project_template/ ; sub-directory dedicated to a "template" for quickly setting up new python projects
-    ----------| .env ; file containing user-specific environment variables like api keys, secrets, etc.
-    ----------| main.py ; "main" jumping off file for new programs
-    ----------| settings.py ; for importing environment variables into the main file
-    -----| messager_output/ ; sub-directory for saving project output logs
-    ----------| all/ ; sub-directory for all-encompassing output logs
-    ---------------| all.log.<some_number> ; all-encompassing log files, capped at 500 mb
-    ----------| warn_up/ ; sub-drectory for warning and more severe output logs
-    ---------------| warn_up.log.<some_number> ; warning and more severe output log files, capped at 500 mb
-    -----| messager.py ; for printing/logging messages to the terminal and log-file system
-    -----| setup_status.json ; file containing data about whether the project has been set up
-    -----| threading.py ; file containing the class for easily creating and monitoring multi-thread programs
-    -----| __init__.py ; empty .py file needed to import classes into an outer directory
+    | pytools/ ; overarching repo directory
+    -----| .env ; file containing user-specific environment variables like api keys, secrets, etc.
+    -----| main.py ; "main" jumping off file for new programs
+    -----| settings.py ; for importing environment variables into the main file
+    -----| pytools/ ; sub-directory for the actual 'tools' for the project
+    ----------| messager_output/ ; sub-directory for saving project output logs
+    ---------------| all/ ; sub-directory for all-encompassing output logs
+    --------------------| all.log.<some_number> ; all-encompassing log files, capped at 500 mb
+    ---------------| warn_up/ ; sub-drectory for warning and more severe output logs
+    --------------------| warn_up.log.<some_number> ; warning and more severe output log files, capped at 500 mb
+    ----------| messager.py ; for printing/logging messages to the terminal and log-file system
+    ----------| setup_status.json ; file containing data about whether the project has been set up
+    ----------| threading.py ; file containing the class for easily creating and monitoring multi-thread programs
+    ----------| __init__.py ; empty .py file needed to import classes into an outer directory
 
 ---
 
