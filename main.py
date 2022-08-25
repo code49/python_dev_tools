@@ -14,7 +14,6 @@ import os
 
 # import the setup routine to be run
 from pytools.module_setup import moduleSetup
-import settings
 from pytools.messager import messagerSetup, clear, horizontalRule
 
 # ----- define developer mode setting -----
@@ -30,6 +29,9 @@ messager = messagerSetup(dev_mode=True, run_erase=False)
 # add in strings of require-install modules here
 module_list = ["python-dotenv"]
 moduleSetup(dev_mode, module_list)
+
+# now that dotenv is ensured, import settings
+import settings
 
 # ----- import add-on libraries -----
 
