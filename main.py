@@ -10,8 +10,6 @@
 import time
 import os
 
-# other libraries
-
 # ----- import tool libraries from pytools
 
 # import the setup routine to be run
@@ -32,6 +30,11 @@ messager = messagerSetup(dev_mode=True, run_erase=False)
 # add in strings of require-install modules here
 module_list = ["python-dotenv"]
 moduleSetup(dev_mode, module_list)
+
+# ----- import add-on libraries -----
+
+# add in libraries/modules not required by pytools; this way
+# modules can be installed before import time
 
 # ----- load environment variables -----
 
