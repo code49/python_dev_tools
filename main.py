@@ -28,7 +28,7 @@ messager = messagerSetup(dev_mode=True, run_erase=False)
 
 # add in strings of require-install modules here
 module_list = ["python-dotenv"]
-moduleSetup(dev_mode, module_list)
+moduleSetup(module_list, dev_mode)
 
 # now that dotenv is ensured, import settings
 import settings
