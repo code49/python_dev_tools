@@ -40,7 +40,7 @@ import settings
 
 # ----- load environment variables -----
 
-settings = settings.getSettings()
+settings = settings.getSettings([])
 
 # ----- completion message -----
 
