@@ -12,7 +12,6 @@ from pathlib import Path
 import os
 
 BASEDIR = os.path.abspath(os.path.dirname(__file__))
-print(find_dotenv())
 load_dotenv(find_dotenv())
 
 # ----- create function to return environment variables to main file -----
